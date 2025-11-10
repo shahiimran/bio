@@ -128,9 +128,24 @@
       color: #fff;
       cursor: pointer;
     }
+ /* Live Date & Time */
+.clock {
+  position: fixed;
+  top: 15px;
+  right: 25px;
+  color: #00ffff;
+  font-size: 18px;
+  background: rgba(0,0,0,0.4);
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid #00ffff;
+  font-family: 'Courier New', monospace;
+  z-index: 1000;
+} 
   </style>
 </head>
 <body>
+  <div class="clock" id="clock"></div>
 
   <div class="container">
     <img src="https://i.ibb.co/qY86PnrS/x.jpg" alt="Your Photo" class="profile-pic" />
@@ -213,7 +228,25 @@
     modal.addEventListener('click', (e) => {
       if (e.target === modal) modal.classList.remove('active');
     });
+// ✅ Live Date & Time
+function updateClock() {
+  const now = new Date();
+  const options = { 
+    weekday: 'short', 
+    year: 'numeric', 
+    month: 'short', 
+    day: 'numeric', 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    second: '2-digit', 
+    hour12: true 
+  };
+  document.getElementById('clock').textContent = now.toLocaleString('en-US', options);
+}
+setInterval(updateClock, 1000);
+updateClock();
   </script>
 
 </body>
 </html>
+
