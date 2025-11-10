@@ -20,7 +20,7 @@
       border-radius: 15px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.5);
     }
-    .profile-pic, .crush-pic {
+    .profile-pic {
       width: 160px;
       height: 160px;
       border-radius: 50%;
@@ -51,25 +51,100 @@
     .section {
       margin-top: 30px;
     }
+
+    /* --- Gallery Section (Horizontal Scroll) --- */
+    .gallery-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      margin-top: 20px;
+      padding-bottom: 10px;
+    }
+    .gallery-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .gallery-container::-webkit-scrollbar-thumb {
+      background-color: #00ffff;
+      border-radius: 5px;
+    }
+    .gallery img {
+      width: 130px;
+      height: 130px;
+      border-radius: 10px;
+      object-fit: cover;
+      display: inline-block;
+      margin-right: 15px;
+      border: 2px solid #00ffff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    /* --- Fullscreen Modal with Arrows --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .modal img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 3px solid #00ffff;
+      border-radius: 15px;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 40px;
+      color: #00ffff;
+      cursor: pointer;
+      user-select: none;
+      transform: translateY(-50%);
+    }
+    .arrow.left {
+      left: 40px;
+    }
+    .arrow.right {
+      right: 40px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <img src="https://i.ibb.co/HDqX770d/x.jpg" alt="Your Photo" class="profile-pic" />
+    <img src="https://i.ibb.co/qY86PnrS/x.jpg" alt="Your Photo" class="profile-pic" />
     <h1>Shahi Imran</h1>
-    <p>Hello! I'm <strong>Shahi Imran</strong>,  programmer, and future legend in cybersecurity. I create, explore, and inspire through code, tools, and hacking knowledge.</p>
+    <p>Hello! I'm <strong>Shahi Imran</strong>, programmer, and future legend in cybersecurity. I create, explore, and inspire through code, tools, and hacking knowledge.</p>
 
     <div class="section">
       <h2>Skills</h2>
       <ul>
         <li>Python, JavaScript, HTML, Bash</li>
         <li>Ethical Hacking, Termux, Kali Linux</li>
-        <li>Bot Development (Telegram, )</li>
+        <li>Bot Development (Telegram, etc.)</li>
       </ul>
-    </div>
-
-    <div class="socials">
+<div class="socials">
   <a href="https://instagram.com/sir.shah_i" target="_blank">Instagram</a>
   <a href="https://tiktok.com/@cyber_xpart" target="_blank">TikTok</a>
   <a href="https://snapchat.com/add/shahiimrann" target="_blank">Snapchat</a>
